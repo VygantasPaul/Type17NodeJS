@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            form {
+                width: 900px;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form id="addMovieForm">
+            <input type="text" placeholder="Title" id="movie-title">
+            <input type="text" placeholder="imdbLink" id="movie-imdblink">
+            <input type="text" placeholder="Rating" id="movie-rating">
+            <textarea name="" id="movie-description" cols="30" rows="10"></textarea>
+            <label for="checkbox"> <input type="checkbox" id="checkbox">Is watched ?</label>
+            <button type="submit">Add Movie</button>
+        </form>
+    </body>
+    <script src="main.js"></script>
+
+</html>
