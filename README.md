@@ -1,12 +1,16 @@
 # Type17NodeJS
 
+## cors - (https://www.npmjs.com/package/cors)
 ## express - (https://www.npmjs.com/package/express)
 ## dotenv - (https://www.npmjs.com/package/dotenv)
 ## nodemon - (https://www.npmjs.com/package/nodemon)
 ## eslint - (https://www.npmjs.com/package/eslint)
 
-> npm i express
+> npm i cors
+ - var cors = require('cors')
 > 
+> npm i express
+ - const express = require("express")
 > npm i dotenv
  - require("dotenv").config()
 
