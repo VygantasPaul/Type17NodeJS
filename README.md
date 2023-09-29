@@ -18,7 +18,7 @@
  
  - app.listen(port, () => console.log(`Server is running on port ${port}`))
 
-> npm i nodemon 
+> npm i nodemon
 
 > npx eslint --init
 
