@@ -7,7 +7,7 @@
 ## eslint - (https://www.npmjs.com/package/eslint)
 
 > npm i cors
- - var cors = require('cors')
+ - const cors = require('cors')
 > 
 > npm i express
  - const express = require("express")
@@ -18,7 +18,7 @@
  
  - app.listen(port, () => console.log(`Server is running on port ${port}`))
 
-> npm i nodemon --save-dev
+> npm i nodemon 
 
 > npx eslint --init
 
