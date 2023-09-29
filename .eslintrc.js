@@ -22,5 +22,8 @@ module.exports = {
         "ecmaVersion": "latest"
     },
     "rules": {
+        "singleQuote": true,
+        "arrowParens": "always",
+        "trailingComma": "all"
     }
 }
