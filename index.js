@@ -5,7 +5,7 @@ const app = express();
 const taskRouter = require("./routes/movie");
 
 const cors = require('cors');
-app.use(cors);
+app.use(cors());
 
 require('dotenv').config()
 
