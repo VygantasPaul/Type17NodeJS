@@ -1,9 +1,11 @@
 # Type17NodeJS
 
+## [npm install express](https://www.npmjs.com/package/express)
 ## dotenv - https://www.npmjs.com/package/dotenv
 ## nodemon - https://www.npmjs.com/package/nodemon
 ## eslint - https://www.npmjs.com/package/eslint
 
+> npm i express
 > npm i dotenv
  - require("dotenv").config()
 
