@@ -15,14 +15,17 @@
 
 > npx eslint --init
 
-
- scripts: {
+> package.json:
+> 
+scripts: {
 "start": "node app.js",
 "dev": "nodemon app.js
 }
 
-{
-"singleQuote": true,
-"arrowParens": "always",
-"trailingComma": "all"
-}
+> .eslintrc.js:
+
+ "rules": {
+     "singleQuote": true,
+     "arrowParens": "always",
+     "trailingComma": "all"
+ }
