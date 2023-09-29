@@ -10,7 +10,7 @@ app.use(cors);
 require('dotenv').config()
 
 app.use(express.json());
-app.use(taskRouter, cors)
+app.use(taskRouter)
 
 // eslint-disable-next-line no-undef
 console.log(process.env.DB_CONNECTION);
