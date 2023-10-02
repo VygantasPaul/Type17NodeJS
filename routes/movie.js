@@ -4,17 +4,17 @@ const router = express.Router()
 
 const { GET_ALL_MOVIES, ADD_MOVIE, GET_MOVIES_SORTED, GET_MOVIE_BY_ID, SET_MOVIE_WATCHED } = require("../controller/movie")
 
-router.get('/get-movies', GET_ALL_MOVIES)
+router.get('/movies', GET_ALL_MOVIES)
 
-router.post("/add-movie", ADD_MOVIE)
+router.post("/add", ADD_MOVIE)
 
-router.get('/get-movies-sorted', GET_MOVIES_SORTED)
+router.get('/sorted', GET_MOVIES_SORTED)
 
-router.get('/get-movie/:id', GET_MOVIE_BY_ID)
+router.get('/movies/:id', GET_MOVIE_BY_ID)
 
-router.get('/set-movie-watched/:id', SET_MOVIE_WATCHED)
+router.put('/movies/:id/', SET_MOVIE_WATCHED)
 
-router.get('/get-status', (req, res) => {
+router.get('/status', (req, res) => {
     return res.json({ status: "it works" })
 })
 

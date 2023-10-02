@@ -1,16 +1,12 @@
 const express = require("express");
-
 const app = express();
-
+require('dotenv').config()
 const taskRouter = require("./routes/movie");
+app.use(express.json());
+app.use(taskRouter)
 
 const cors = require('cors');
 app.use(cors());
-
-require('dotenv').config()
-
-app.use(express.json());
-app.use(taskRouter)
 
 // eslint-disable-next-line no-undef
 console.log(process.env.DB_CONNECTION);
