@@ -50,15 +50,11 @@ const GET_MOVIE_BY_ID = (req, res) => {
 }
 const SET_MOVIE_WATCHED = (req, res) => {
 
-    const statusString = req.params.status;
+    const statusString = req.params.status; /// params
 
-    const watchedStatusBody = req.body.isWatched;
+    const watchedStatusBody = req.body.isWatched; /// body
 
-    const isWatchedMovie = watchedStatusBody === "true";
-
-    console.log('Received status:', watchedStatusBody);
-    console.log('Converted status to boolean:', isWatchedMovie);
-    console.log('Received movie ID:', req.params.id);
+    const isWatchedMovie = statusString === "true"; ///
 
     const movieIndex = movies.findIndex((movie) => movie.id === req.params.id);
 
@@ -67,8 +63,10 @@ const SET_MOVIE_WATCHED = (req, res) => {
         return res.status(404).json({ response: 'Movie was not found' })
     }
 
-    movies[movieIndex].isWatched = watchedStatusBody;
-    movies[movieIndex].title = req.body.title;
+    movies[movieIndex].isWatched = req.body.isWatched; //
+    movies[movieIndex].title = req.body.title; //
+
+    movies[movieIndex] = { ...movies[movieIndex], ...req.body }
 
     return res.json({ response: "Movie was watched", movieIndex: movies })
 }
