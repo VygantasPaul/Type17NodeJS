@@ -1,11 +1,14 @@
 
 const { v4: uuidv4 } = require('uuid');
 
-const movies = [];
+let movies = [];
 
 const GET_ALL_MOVIES = (req, res) => {
-    return res.json({ response: movies })
+    const limit = req.query.limit || 4;
+    const limitedMovies = movies.slice(0, limit);
+    return res.json({ response: limitedMovies })
 }
+
 const ADD_MOVIE = (req, res) => {
 
     console.log(req.body)
@@ -48,28 +51,22 @@ const GET_MOVIE_BY_ID = (req, res) => {
         return res.status(404).json({ response: 'movie was not found' })
     }
 }
-const SET_MOVIE_WATCHED = (req, res) => {
-
-    const statusString = req.params.status; /// params
-
-    const watchedStatusBody = req.body.isWatched; /// body
-
-    const isWatchedMovie = statusString === "true"; ///
+const UPDATE_MOVIE = (req, res) => {
 
     const movieIndex = movies.findIndex((movie) => movie.id === req.params.id);
-
 
     if (movieIndex === -1) {
         return res.status(404).json({ response: 'Movie was not found' })
     }
 
-    movies[movieIndex].isWatched = req.body.isWatched; //
-    movies[movieIndex].title = req.body.title; //
-
     movies[movieIndex] = { ...movies[movieIndex], ...req.body }
 
-    return res.json({ response: "Movie was watched", movieIndex: movies })
+    return res.json({ movie: movieIndex })
+}
+const SET_MOVIE_DELETE = (req, res) => {
+    const filteredMovies = movies.filter((movie) => movie.id !== req.params.id)
+    movies = filteredMovies
+    return res.json({ movies: movies })
 }
 
-
-module.exports = { GET_ALL_MOVIES, ADD_MOVIE, GET_MOVIES_SORTED, GET_MOVIE_BY_ID, SET_MOVIE_WATCHED }
+module.exports = { GET_ALL_MOVIES, ADD_MOVIE, GET_MOVIES_SORTED, GET_MOVIE_BY_ID, UPDATE_MOVIE, SET_MOVIE_DELETE }
