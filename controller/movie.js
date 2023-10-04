@@ -1,6 +1,5 @@
 
-const { v4: uuidv4 } = require('uuid');
-
+const MovieModel = require("../model/movie")
 let movies = [];
 
 const GET_ALL_MOVIES = (req, res) => {
@@ -19,19 +18,20 @@ const ADD_MOVIE = (req, res) => {
     if (movieExist) {
         return res.status(404).json({ response: 'movie with the ID already exist' })
     }
-
-    const movie = {
-        id: uuidv4(),
+    const movie = new MovieModel({
         title: req.body.title,
         description: req.body.description,
         rating: req.body.rating,
-        imdblink: req.body.imdbLink,
-        isWatched: req.body.isWatched
-    }
+        imdblink: req.body.imdblink,
+        isWatched: false
+    })
 
-    movies.push(movie);
-
-    return res.status(200).json({ response: 'movie was added' })
+    movie.save().then((dbResponse) => {
+        return res.status(200).json({ response: dbResponse })
+    }).catch((error) => {
+        console.log("Error found:", error);
+        return res.status(500).json({ response: 'Something went wrong' })
+    })
 
 }
 
