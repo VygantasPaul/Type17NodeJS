@@ -44,7 +44,7 @@ const GET_MOVIE_BY_ID = (req, res) => {
 
     const findById = req.params.id;
 
-    const movieId = movies.find((e) => e.id === findById)
+    const movieId = movies.find((movie) => movie.id === findById)
 
     if (movieId) {
         return res.json({ response: 'Movie was found', movie: movieId })
