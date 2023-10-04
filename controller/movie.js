@@ -10,23 +10,13 @@ const GET_ALL_MOVIES = (req, res) => {
 }
 
 const ADD_MOVIE = (req, res) => {
-
-    console.log(req.body)
-
-    const id = req.body.id;
-    const movieExist = movies.some((e) => e.id === id);
-
-    if (movieExist) {
-        return res.status(404).json({ response: 'movie with the ID already exist' })
-    }
     const movie = new MovieModel({
         title: req.body.title,
         description: req.body.description,
         rating: req.body.rating,
         imdblink: req.body.imdblink,
-        isWatched: false
+        isWatched: req.body.isWatched
     })
-
     movie.save().then((dbResponse) => {
         return res.status(200).json({ response: dbResponse })
     }).catch((error) => {
@@ -41,11 +31,8 @@ const GET_MOVIES_SORTED = (req, res) => {
     return res.json({ movies: sortMovies })
 }
 const GET_MOVIE_BY_ID = (req, res) => {
-
     const findById = req.params.id;
-
     const movieId = movies.find((movie) => movie.id === findById)
-
     if (movieId) {
         return res.json({ response: 'Movie was found', movie: movieId })
     } else {
@@ -53,15 +40,11 @@ const GET_MOVIE_BY_ID = (req, res) => {
     }
 }
 const UPDATE_MOVIE = (req, res) => {
-
     const movieIndex = movies.findIndex((movie) => movie.id === req.params.id);
-
     if (movieIndex === -1) {
         return res.status(404).json({ response: 'Movie was not found' })
     }
-
     movies[movieIndex] = { ...movies[movieIndex], ...req.body }
-
     return res.json({ movie: movieIndex })
 }
 const SET_MOVIE_DELETE = (req, res) => {
