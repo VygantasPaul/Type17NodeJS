@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 let movies = [];
 
 const GET_ALL_MOVIES = (req, res) => {
-    const limit = req.query.limit || 4;
+    const limit = req.query.limit || 10;
     const limitedMovies = movies.slice(0, limit);
     return res.json({ response: limitedMovies })
 }
