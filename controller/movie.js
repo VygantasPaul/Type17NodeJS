@@ -3,9 +3,10 @@ const MovieModel = require("../model/movie")
 let movies = [];
 
 const GET_ALL_MOVIES = (req, res) => {
-    const limit = req.query.limit || 10;
-    const limitedMovies = movies.slice(0, limit);
-    return res.json({ response: limitedMovies })
+    MovieModel.find().then((response) => {
+        return res.json({ movies: response })
+    })
+
 }
 
 const ADD_MOVIE = (req, res) => {
