@@ -27,17 +27,16 @@ const ADD_MOVIE = (req, res) => {
 }
 
 const GET_MOVIES_SORTED = (req, res) => {
+
     const sortMovies = movies.sort((a, b) => b.rating - a.rating);
     return res.json({ movies: sortMovies })
 }
 const GET_MOVIE_BY_ID = (req, res) => {
-    const findById = req.params.id;
-    const movieId = movies.find((movie) => movie.id === findById)
-    if (movieId) {
-        return res.json({ response: 'Movie was found', movie: movieId })
-    } else {
-        return res.status(404).json({ response: 'movie was not found' })
-    }
+    MovieModel.findById({ _id: req.params.id }).then((response) => {
+        console.log(response)
+        return res.json({ response: response })
+    })
+
 }
 const UPDATE_MOVIE = (req, res) => {
     const movieIndex = movies.findIndex((movie) => movie.id === req.params.id);
