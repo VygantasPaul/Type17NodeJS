@@ -27,7 +27,6 @@ const ADD_MOVIE = (req, res) => {
 }
 
 const GET_MOVIES_SORTED = (req, res) => {
-
     const sortMovies = movies.sort((a, b) => b.rating - a.rating);
     return res.json({ movies: sortMovies })
 }
@@ -36,15 +35,12 @@ const GET_MOVIE_BY_ID = (req, res) => {
         console.log(response)
         return res.json({ response: response })
     })
-
 }
 const UPDATE_MOVIE = (req, res) => {
-    const movieIndex = movies.findIndex((movie) => movie.id === req.params.id);
-    if (movieIndex === -1) {
-        return res.status(404).json({ response: 'Movie was not found' })
-    }
-    movies[movieIndex] = { ...movies[movieIndex], ...req.body }
-    return res.json({ movie: movieIndex })
+
+    MovieModel.update({ _id: req.params.id }, { ...req.body })
+
+    return res.json({ movie: "Movie updated" })
 }
 const SET_MOVIE_DELETE = (req, res) => {
     const filteredMovies = movies.filter((movie) => movie.id !== req.params.id)
