@@ -37,10 +37,9 @@ const GET_MOVIE_BY_ID = (req, res) => {
     })
 }
 const UPDATE_MOVIE = (req, res) => {
-
-    MovieModel.update({ _id: req.params.id }, { ...req.body })
-
-    return res.json({ movie: "Movie updated" })
+    MovieModel.updateOne({ _id: req.params.id }, { ...req.body }).then((response) => {
+        return res.json({ movie: "Movie updated", response: req.body })
+    })
 }
 const SET_MOVIE_DELETE = (req, res) => {
     const filteredMovies = movies.filter((movie) => movie.id !== req.params.id)
