@@ -5,6 +5,8 @@
 ## dotenv - (https://www.npmjs.com/package/dotenv)
 ## nodemon - (https://www.npmjs.com/package/nodemon)
 ## eslint - (https://www.npmjs.com/package/eslint)
+## jsonwebtoken - (https://www.npmjs.com/package/jsonwebtoken)
+## bcryptjs - (https://www.npmjs.com/package/bcryptjs)
 
 > npm i cors
  - const cors = require('cors')
@@ -21,6 +23,10 @@
 > npm i nodemon
 
 > npx eslint --init
+
+> npm i jsonwebtoken
+
+> npm i bcrypt.js
 
 > package.json:
 > 
