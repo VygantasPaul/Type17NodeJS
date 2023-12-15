@@ -7,7 +7,7 @@
 ## eslint - (https://www.npmjs.com/package/eslint)
 ## jsonwebtoken - (https://www.npmjs.com/package/jsonwebtoken)
 ## bcryptjs - (https://www.npmjs.com/package/bcryptjs)
-
+## moongose - (https://www.npmjs.com/package/moongose)
 > npm i cors
  - const cors = require('cors')
 > 
@@ -27,6 +27,8 @@
 > npm i jsonwebtoken
 
 > npm i bcrypt.js
+
+> npm i moongose
 
 > package.json:
 > 
